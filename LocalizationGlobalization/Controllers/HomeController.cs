@@ -1,5 +1,6 @@
 ﻿using LocalizationGlobalization.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Localization;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -11,15 +12,19 @@ namespace LocalizationGlobalization.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly IHtmlLocalizer<HomeController> localizer;
+        private readonly ILogger<HomeController> logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, IHtmlLocalizer<HomeController> localizer)
         {
-            _logger = logger;
+            this.logger = logger;
+            this.localizer = localizer;
         }
 
         public IActionResult Index()
         {
+            var test = localizer["HelloWorld"];
+            ViewData["HelloWorld"] = test;
             return View();
         }
 
