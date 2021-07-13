@@ -36,8 +36,7 @@ namespace LocalizationGlobalization
                     var supportedCultures = new List<CultureInfo>
                     {
                         new CultureInfo("en"),
-                        new CultureInfo("es"),
-                        new CultureInfo("fr")
+                        new CultureInfo("kr")
                     };
                     opt.DefaultRequestCulture = new RequestCulture("en");
                     opt.SupportedCultures = supportedCultures;
